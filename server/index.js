@@ -1,6 +1,11 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
+const PORT = 8000;
+app.use(cors());
+
+let appPassword = "";
 
 const passwordGenerator = (len) => {
   let password = "";
@@ -9,13 +14,18 @@ const passwordGenerator = (len) => {
   for (let i = 0; i < len; i++) {
     password += symbols.charAt(Math.floor(Math.random() * symbols.length));
   }
-  console.log(password);
+  return (appPassword = password);
 };
 
 app.get("/", (req, res) => {
   res.send("Server start...");
 });
 
-app.listen(5000, () => {
-  console.log("App has start http://localhost:5000");
+app.get("/password", (req, res) => {
+  passwordGenerator(req.query.num);
+  res.send(appPassword);
+});
+
+app.listen(PORT, () => {
+  console.log("App has start http://localhost:8000");
 });
