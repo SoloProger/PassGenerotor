@@ -23,6 +23,6 @@ getPasswordBtn.addEventListener("click", (e) => {
 
 function sendData(value) {
   axios
-    .get(`http://localhost:8000/password?num=${value}`)
+    .get(`http://localhost:8000/password/?${value}`)
     .then((response) => (password = response.data));
 }

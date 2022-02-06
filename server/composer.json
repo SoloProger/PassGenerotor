@@ -1,0 +1,15 @@
+{
+    "name": "andreisolo/server",
+    "autoload": {
+        "psr-4": {
+            "Andreisolo\\Server\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SoloProger",
+            "email": "solo.proger@gmail.com"
+        }
+    ],
+    "require": {}
+}
